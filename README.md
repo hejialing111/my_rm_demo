@@ -162,11 +162,3 @@ ros2 topic hz /rm_energy/gimbal/command    # 仿真模式
 | `fire_miss_m` | 开火误差门限 |
 
 ---
-# 把改动全部加入暂存区
-git add -A
-
-# 提交
-git commit -m "描"
-
-# 推送到 my_rm_demo
-git push
