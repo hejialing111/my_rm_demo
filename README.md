@@ -162,15 +162,11 @@ ros2 topic hz /rm_energy/gimbal/command    # 仿真模式
 | `fire_miss_m` | 开火误差门限 |
 
 ---
+# 把改动全部加入暂存区
+git add -A
 
-## 排错
+# 提交
+git commit -m "描"
 
-| 现象 | 检查 |
-|---|---|
-| `setup.bash: 没有那个文件` | 仿真工作区路径不对或没编；`find ~ -name start_simulator.sh` |
-| `executable not found` | 没重编，或 `rune_gimbal_node` 找不到 `rm_energy_interfaces` |
-| 视频源报"打不开视频" | `video_path` 不对；`ls -l ~/demo_01/big_11.avi` |
-| 识别日志空 | 视频源没发图，或 `compressed_topic` 对不上 |
-| 调试图窗口没弹 | `python3 -c 'import cv2'` |
-| 云台不开火 | 看 `miss` 是否进 `fire_miss_m` 门限 |
-| 改了参数没生效 | 参数只在启动时读；重启节点 |
+# 推送到 my_rm_demo
+git push
