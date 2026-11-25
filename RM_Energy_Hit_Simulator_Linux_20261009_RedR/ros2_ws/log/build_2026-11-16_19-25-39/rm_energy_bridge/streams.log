@@ -1,0 +1,22 @@
+[0.378s] Invoking command in '/home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/src/rm_energy_bridge': PYTHONPATH=/home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/build/rm_energy_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/install/rm_energy_bridge/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rm_energy_bridge build --build-base /home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/build/rm_energy_bridge/build install --record /home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/build/rm_energy_bridge/install.log --install-scripts $base/lib/rm_energy_bridge --single-version-externally-managed install_data
+[0.505s] running egg_info
+[0.505s] writing ../../build/rm_energy_bridge/rm_energy_bridge.egg-info/PKG-INFO
+[0.505s] writing dependency_links to ../../build/rm_energy_bridge/rm_energy_bridge.egg-info/dependency_links.txt
+[0.505s] writing entry points to ../../build/rm_energy_bridge/rm_energy_bridge.egg-info/entry_points.txt
+[0.505s] writing requirements to ../../build/rm_energy_bridge/rm_energy_bridge.egg-info/requires.txt
+[0.505s] writing top-level names to ../../build/rm_energy_bridge/rm_energy_bridge.egg-info/top_level.txt
+[0.506s] reading manifest file '../../build/rm_energy_bridge/rm_energy_bridge.egg-info/SOURCES.txt'
+[0.507s] writing manifest file '../../build/rm_energy_bridge/rm_energy_bridge.egg-info/SOURCES.txt'
+[0.507s] running build
+[0.507s] running build_py
+[0.507s] running install
+[0.508s] running install_lib
+[0.508s] running install_data
+[0.509s] running install_egg_info
+[0.510s] removing '/home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/install/rm_energy_bridge/lib/python3.10/site-packages/rm_energy_bridge-0.1.0-py3.10.egg-info' (and everything under it)
+[0.510s] Copying ../../build/rm_energy_bridge/rm_energy_bridge.egg-info to /home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/install/rm_energy_bridge/lib/python3.10/site-packages/rm_energy_bridge-0.1.0-py3.10.egg-info
+[0.511s] running install_scripts
+[0.524s] Installing unity_camera_bridge script to /home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/install/rm_energy_bridge/lib/rm_energy_bridge
+[0.524s] Installing unity_udp_bridge script to /home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/install/rm_energy_bridge/lib/rm_energy_bridge
+[0.524s] writing list of installed files to '/home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/build/rm_energy_bridge/install.log'
+[0.536s] Invoked command in '/home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/src/rm_energy_bridge' returned '0': PYTHONPATH=/home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/build/rm_energy_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/install/rm_energy_bridge/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rm_energy_bridge build --build-base /home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/build/rm_energy_bridge/build install --record /home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/build/rm_energy_bridge/install.log --install-scripts $base/lib/rm_energy_bridge --single-version-externally-managed install_data

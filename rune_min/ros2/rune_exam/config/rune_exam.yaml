@@ -1,0 +1,118 @@
+rune_recognition:
+  ros__parameters:
+  #输入输出
+    compressed_topic: /rm_energy/camera/image_raw/compressed
+    keypoints_topic: /rune/blade_keypoints
+
+    calib_file: ""
+    enable_undistort: true
+#ROI
+    roi_width: 0
+    roi_height: 0
+    detect_scale: 1.0
+    r_center_x: -1.0   # -1 = 图心
+    r_center_y: -1.0
+   
+    rune_color: both
+#HSV阙值
+    red_s_min: 90.0 #饱和度下限
+    red_v_min: 70.0 #明度下限
+    red_h1_max: 15.0 #色相上限
+    red_h2_min: 165.0 #色相下限
+#形状面积
+    min_area_ratio: 0.0002 #最小面积占整图比例
+    max_area_ratio: 0.05 #最大
+    morph_px: 3 #闭运算核大小
+    min_aspect: 0.30 #短轴/长轴下限
+    min_ellipse_fill: 0.85 #椭圆面积
+    min_solidity: 0.90 #面积/凸包下限（剔 R 标凹口）
+    min_radius_px: 4.0 # 最小半径 px
+#去R标
+    hub_ring_scale: 2.0 # 统计环半径=2.0×靶半径
+    hub_ring_coverage_max: 0.15 #环上亮点占比上限（靶面 0.03~0.04，R 标 0.24+）
+    min_radius_ratio_to_max: 0.55 #候选半径<本帧最大半径*0.55
+    max_blades: 2
+
+    allow_shape_fallback: true
+
+rune_solver:
+  ros__parameters:
+    keypoints_topic: /rune/blade_keypoints
+    camera_info_topic: /rm_energy/camera/camera_info
+    target_topic: /rune/target_info
+
+    feature_diameter_m: 0.308 #检测器拟合的圆靶外缘（与距离正比）
+
+    pending_min_holes: 1 # 待击打/已激活分界：靶面内部暗区个数
+
+    #tracker_node
+    track_max_missed: 30 #连续丢30帧（1）秒就删tracker
+    track_confirm_hits: 2 #连续关联去小噪点
+    track_velocity_alpha: 0.5 #速度EMA系数
+    track_gate_ratio: 4.0 #关联门限系数
+    switch_after_missed: 5 #丢5帧换靶
+    activate_confirm: 8 #连续8帧判已经激活才换靶
+
+    assume_undistorted: false
+
+    fx: 0.0
+    fy: 0.0
+    cx: 0.0
+    cy: 0.0
+
+rune_gimbal:
+  ros__parameters:
+    target_topic: /rune/target_info
+    command_topic: /rm_energy/gimbal/command
+#弹道
+    muzzle_speed_mps: 20.0 #子弹初速度
+    gravity_mps2: 9.81 #重力加速度
+    extra_latency_s: -0.12 #指令到云台到位剩余延迟，抵前馈和提前量的双重补偿
+    gimbal_lag_s: 0.03 #云台姿态比指令慢
+    control_rate_hz: 50.0 #控制频率
+#姿态
+    pose_source: auto #auto/oracle为真实姿态，command为指令历史
+    labels_topic: /rm_energy/debug/labels
+    pose_timeout_s: 0.10 #oracle 样本过期时长
+#枪口
+    initial_elevation_rad: 0.044078972191 #没有指令时相机光轴初始仰角
+    muzzle_x_m: 0.08 #枪口相对相机：右
+    muzzle_y_m: 0.06 #下
+    muzzle_z_m: 0.25 #前
+    enable_ballistic: true #弹道补偿
+#云台限位
+    yaw_min_rad: -0.698131700798
+    yaw_max_rad: 0.698131700798
+    pitch_min_rad: -0.209439510239
+    pitch_max_rad: 0.314159265359
+
+    angle_filter_alpha: 0.5 #直线预测平滑系数（越小越平滑）
+    aim_kp: 4.0 #比例增益 1/s，只修残差
+    aim_deadband_rad: 0.004 #死区
+#圆拟合几何
+    rune_arm_radius_m: 0.7 #臂靶心分布圆半径
+    circle_radius_tol_ratio: 0.55 #允许|r − 0.7/距离|≤ 55%
+    circle_min_phase_span_rad: 0.9 #圆弧至少走过的相位
+#圆拟合质量
+    circle_max_rel_residual: 0.20 #残差/半径上限（判噪声团）
+    circle_max_tail_innovation: 0.12 #判模型过期
+    circle_reset_after_reject: 10 #连续被拒几帧清缓存重建
+#执行限制
+    max_yaw_rate_radps: 2.0
+    max_pitch_rate_radps: 2.0
+#开火
+    fire_miss_m: 0.06 #预测误差
+    fire_interval_s: 0.5 #射速间隔
+    fire_settle_s: 0.8 #换靶后收敛好再打
+    enable_fire: true
+
+    fire_confirm_ticks: 5 #连续5拍在门限内开火
+    fire_mode_hold_s: 0.3 #估计运动状态稳定时长
+    fire_limit_guard: true #期望角超限位按住不开火
+
+    fire_require_model: true #要求模型质量达标才开火
+    fire_circle_max_residual: 0.05 #开火级残差
+    fire_circle_max_tail: 0.05
+    fire_min_circle_samples: 10 #圆拟合最少点数
+    fire_static_rate_radps: 0.05 #静止档角速度阈值
+    fire_static_hold_frames: 15 #静止档连续帧数

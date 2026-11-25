@@ -1,0 +1,4 @@
+[console_scripts]
+unity_camera_bridge = rm_energy_bridge.unity_camera_bridge:main
+unity_udp_bridge = rm_energy_bridge.unity_udp_bridge:main
+

@@ -1,0 +1,6 @@
+{
+  "package_name": "rm_energy_interfaces",
+  "non_idl_tuples": [
+    "/home/hejialing/demo_01/RM_Energy_Hit_Simulator_Linux_20261009_RedR/ros2_ws/src/rm_energy_interfaces:msg/GimbalCommand.msg"
+  ]
+}
